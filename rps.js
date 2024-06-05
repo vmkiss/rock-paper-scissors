@@ -1,3 +1,6 @@
+let humanScore = 0; //tracks human player's total score
+let computerScore = 0; //tracks computer's total score
+
 //Get computer's move
 function getComputerChoice(){
     let computerChoice = Math.random()
@@ -30,12 +33,16 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock") {
         if (computerChoice === "Rock") {
+            ++humanScore;
+            ++computerScore;
             return printTie(humanChoice);
         }
         if (computerChoice === "Paper") {
+            ++computerScore;
             return printLoss(computerChoice, humanChoice);
         }
         if (computerChoice === "Scissors") {
+            ++humanScore;
             return printWin(humanChoice, computerChoice);
         }
     }
