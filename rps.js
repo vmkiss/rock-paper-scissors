@@ -96,10 +96,13 @@ function printWin(winnerChoice, loserChoice) {
 }
 
 
-//Play single round of RPS
-let hC = getHumanChoice();
-let cC = getComputerChoice();
-playRound(hC, cC);
-console.log(`Human Score: ${humanScore}`);
-console.log(`Computer Score: ${computerScore}`);
+//Play five rounds of RPS
+for (i = 0; i < 5; ++i) {
+    let hC = getHumanChoice();
+    let cC = getComputerChoice();
+    playRound(hC, cC);
+    console.log(`Human Score: ${humanScore}`);
+    console.log(`Computer Score: ${computerScore}`);
+}
+
 
