@@ -1,7 +1,6 @@
 //Get computer's move
-
 function getComputerChoice(){
-    computerChoice = Math.random()
+    let computerChoice = Math.random()
     
     if (computerChoice < (1/3)) {
        computerChoice = "Rock"; 
@@ -11,10 +10,21 @@ function getComputerChoice(){
         computerChoice = "Scissors";
     }
 
-    return computerChoice
+    return computerChoice;
 }
 
-for (i = 0; i < 11; ++i){
-    console.log(getComputerChoice())
-}
+//Get human player's move
+function getHumanChoice() {
+    let humanChoice = "None";
+    do {
+        humanChoice = prompt("Rock, Paper, or Scissors?:");
+        humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
+    }
+    while (humanChoice != "Rock" && humanChoice != "Paper" &&
+            humanChoice != "Scissors");
     
+    return humanChoice;
+}
+
+console.log(getComputerChoice());
+console.log(getHumanChoice());
