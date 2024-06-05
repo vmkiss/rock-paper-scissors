@@ -100,4 +100,6 @@ function printWin(winnerChoice, loserChoice) {
 let hC = getHumanChoice();
 let cC = getComputerChoice();
 playRound(hC, cC);
+console.log(`Human Score: ${humanScore}`);
+console.log(`Computer Score: ${computerScore}`);
 
