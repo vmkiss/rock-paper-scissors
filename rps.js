@@ -62,6 +62,22 @@ function playRound(humanChoice, computerChoice) {
             return printLoss(computerChoice, humanChoice);
         }
     }
+
+    if (humanChoice == "Scissors") {
+        if (computerChoice == "Rock") {
+            ++computerScore;
+            return printLoss(computerChoice, humanChoice);
+        }
+        if (computerChoice == "Paper") {
+            ++humanScore;
+            return printWin(humanChoice, computerChoice);
+        }
+        if (computerChoice == "Scissors") {
+            ++humanScore;
+            ++computerScore;
+            return printTie(humanChoice);
+        }
+    }
 }
 
 //Print tie
