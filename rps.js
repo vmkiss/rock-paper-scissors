@@ -109,9 +109,16 @@ rockBtn.addEventListener("click", () => {
     playRound("Rock", cC);
 })
 
-//Play RPS if play selects paper
+//Play RPS if player selects paper
 paperBtn = document.querySelector(".paper");
 paperBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
     playRound("Paper", cC);
+})
+
+//Play RPS if player selects scissors
+scissorsBtn = document.querySelector(".scissors");
+scissorsBtn.addEventListener("click", () => {
+    let cC = getComputerChoice();
+    playRound("Scissors", cC);
 })
