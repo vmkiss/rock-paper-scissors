@@ -1,5 +1,13 @@
 let humanScore = 0; //tracks human player's total score
 let computerScore = 0; //tracks computer's total score
+let humanScoreDiv = document.querySelector(".human");
+let computerScoreDiv = document.querySelector(".computer")
+
+
+//Create div to hold results message and append to results div
+let resultMsg = document.createElement("div");
+let resultDiv = document.querySelector(".results");
+resultDiv.appendChild(resultMsg);
 
 //Get computer's move
 function getComputerChoice(){
@@ -14,19 +22,6 @@ function getComputerChoice(){
     }
 
     return computerChoice;
-}
-
-//Get human player's move
-function getHumanChoice() {
-    let humanChoice = "None";
-    do {
-        humanChoice = prompt("Rock, Paper, or Scissors?:");
-        humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
-    }
-    while (humanChoice != "Rock" && humanChoice != "Paper" &&
-            humanChoice != "Scissors");
-    
-    return humanChoice;
 }
 
 //Play a round of RPS
@@ -80,29 +75,80 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+//Display human and computer scores
+function displayScores() {
+    humanScoreDiv.textContent = `Human Score: ${humanScore.toString()}`;
+    computerScoreDiv.textContent = `Computer Score: ${computerScore.toString()}`;
+}
+
 //Print tie
 function printTie(choice) {
-    console.log(`You tie! ${choice} equals ${choice}.`);
+    //console.log(`You tie! ${choice} equals ${choice}.`);
+    resultMsg.textContent = `You tie! ${choice} equals ${choice}.`;
+    displayScores();
+    displayWinner();
 }
 
 //Print loss
 function printLoss(winnerChoice, loserChoice) {
-    console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
+    //console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
+    resultMsg.textContent = `You lose! ${winnerChoice} beats ${loserChoice}.`;
+    displayScores();
+    displayWinner();
 }
 
 //Print win
 function printWin(winnerChoice, loserChoice) {
-    console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
+    //console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
+    resultMsg.textContent = `You win! ${winnerChoice} beats ${loserChoice}.`;
+    displayScores();
+    displayWinner();
 }
 
+//Display winner if either player has a score of 5
+function displayWinner() {
+    if (computerScore === 5 || humanScore === 5) {
+        winnerDiv = document.createElement("div");
+        resultDiv.appendChild(winnerDiv);
+        winnerDiv.style.color = "red";
+        winnerDiv.style.fontWeight = "bold";
 
-//Play five rounds of RPS
-for (i = 0; i < 5; ++i) {
-    let hC = getHumanChoice();
+        if (computerScore === 5) {
+            winnerDiv.textContent = "Computer Won! Click the New Game button to play again."
+        } else {
+            winnerDiv.textContent = "You won! Click the New Game button to play again."
+        }
+    }
+}
+
+//Play RPS if player selects rock
+rockBtn = document.querySelector(".rock");
+rockBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
-    playRound(hC, cC);
-    console.log(`Human Score: ${humanScore}`);
-    console.log(`Computer Score: ${computerScore}`);
-}
+    playRound("Rock", cC);
+})
 
+//Play RPS if player selects paper
+paperBtn = document.querySelector(".paper");
+paperBtn.addEventListener("click", () => {
+    let cC = getComputerChoice();
+    playRound("Paper", cC);
+})
 
+//Play RPS if player selects scissors
+scissorsBtn = document.querySelector(".scissors");
+scissorsBtn.addEventListener("click", () => {
+    let cC = getComputerChoice();
+    playRound("Scissors", cC);
+})
+
+//Reset scores and results div if player clicks new game button
+newGameBtn = document.querySelector("#new-game-btn");
+newGameBtn.addEventListener("click", () => {
+    humanScore = 0;
+    humanScoreDiv.textContent = "Human Score: 0";
+    computerScore = 0;
+    computerScoreDiv.textContent = "Computer Score: 0";
+    winnerDiv.remove();
+    resultMsg.textContent = "";
+})
