@@ -109,6 +109,10 @@ rockBtn = document.querySelector(".rock");
 rockBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
     playRound("Rock", cC);
+    let humanScoreDiv = document.querySelector(".human");
+    let computerScoreDiv = document.querySelector(".computer")
+    humanScoreDiv.textContent = `Human Score: ${humanScore.toString()}`;
+    computerScoreDiv.textContent = `Computer Score: ${computerScore.toString()}`;
 })
 
 
