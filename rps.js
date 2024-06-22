@@ -89,7 +89,7 @@ function printTie(choice) {
 function printLoss(winnerChoice, loserChoice) {
     console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
 }
-
+localStorage
 //Print win
 function printWin(winnerChoice, loserChoice) {
     console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
