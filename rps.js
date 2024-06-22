@@ -95,14 +95,23 @@ function printWin(winnerChoice, loserChoice) {
     console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
 }
 
-
-//Play five rounds of RPS
-for (i = 0; i < 5; ++i) {
-    let hC = getHumanChoice();
+//Play RPS if player selects rock
+rockBtn = document.querySelector(".rock")
+rockBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
-    playRound(hC, cC);
-    console.log(`Human Score: ${humanScore}`);
-    console.log(`Computer Score: ${computerScore}`);
-}
+    playRound("Rock", cC)
+})
+
+
+
+
+
+//Play a round of RPS
+let hC = getHumanChoice();
+let cC = getComputerChoice();
+playRound(hC, cC);
+console.log(`Human Score: ${humanScore}`);
+console.log(`Computer Score: ${computerScore}`);
+
 
 

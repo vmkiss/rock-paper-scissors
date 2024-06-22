@@ -1,0 +1,38 @@
+header {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+}
+
+.btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+button {
+    padding: 100px;
+    border-radius: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
+}
+
+.rock {
+    background-color: #ADD8E6;
+}
+
+.paper {
+    background-color:#FFFD8D;
+}
+
+.scissors {
+    background-color: #D1FFBD;
+}
+
+.results {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
+    margin-top: 40px;
+}
