@@ -86,6 +86,7 @@ function printTie(choice) {
     //console.log(`You tie! ${choice} equals ${choice}.`);
     resultMsg.textContent = `You tie! ${choice} equals ${choice}.`;
     displayScores();
+    displayWinner();
 }
 
 //Print loss
@@ -93,6 +94,7 @@ function printLoss(winnerChoice, loserChoice) {
     //console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
     resultMsg.textContent = `You lose! ${winnerChoice} beats ${loserChoice}.`;
     displayScores();
+    displayWinner();
 }
 
 //Print win
@@ -100,8 +102,24 @@ function printWin(winnerChoice, loserChoice) {
     //console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
     resultMsg.textContent = `You win! ${winnerChoice} beats ${loserChoice}.`;
     displayScores();
+    displayWinner();
 }
 
+//Display winner if either player has a score of 5
+function displayWinner() {
+    if (computerScore === 5 || humanScore === 5) {
+        winnerDiv = document.createElement("div");
+        resultDiv.appendChild(winnerDiv);
+        winnerDiv.style.color = "red";
+        winnerDiv.style.fontWeight = "bold";
+
+        if (computerScore === 5) {
+            winnerDiv.textContent = "Computer Won! Click the New Game button to play again."
+        } else {
+            winnerDiv.textContent = "You won! Click the New Game button to play again."
+        }
+    }
+}
 //Play RPS if player selects rock
 rockBtn = document.querySelector(".rock");
 rockBtn.addEventListener("click", () => {
