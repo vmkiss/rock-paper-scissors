@@ -120,6 +120,7 @@ function displayWinner() {
         }
     }
 }
+
 //Play RPS if player selects rock
 rockBtn = document.querySelector(".rock");
 rockBtn.addEventListener("click", () => {
@@ -139,4 +140,15 @@ scissorsBtn = document.querySelector(".scissors");
 scissorsBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
     playRound("Scissors", cC);
+})
+
+//Reset scores and results div if player clicks new game button
+newGameBtn = document.querySelector("#new-game-btn");
+newGameBtn.addEventListener("click", () => {
+    humanScore = 0;
+    humanScoreDiv.textContent = "Human Score: 0";
+    computerScore = 0;
+    computerScoreDiv.textContent = "Computer Score: 0";
+    winnerDiv.remove();
+    resultMsg.textContent = "";
 })
