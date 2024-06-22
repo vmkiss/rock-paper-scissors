@@ -1,6 +1,11 @@
 let humanScore = 0; //tracks human player's total score
 let computerScore = 0; //tracks computer's total score
 
+//Create div to hold results message and append to results div
+let resultMsg = document.createElement("div");
+let resultDiv = document.querySelector(".results");
+resultDiv.appendChild(resultMsg);
+
 //Get computer's move
 function getComputerChoice(){
     let computerChoice = Math.random()
@@ -82,24 +87,28 @@ function playRound(humanChoice, computerChoice) {
 
 //Print tie
 function printTie(choice) {
-    console.log(`You tie! ${choice} equals ${choice}.`);
+    //console.log(`You tie! ${choice} equals ${choice}.`);
+    resultMsg.textContent = `You tie! ${choice} equals ${choice}.`;
 }
 
 //Print loss
 function printLoss(winnerChoice, loserChoice) {
-    console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
+    //console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
+    resultMsg.textContent = `You lose! ${winnerChoice} beats ${loserChoice}.`;
 }
 localStorage
 //Print win
 function printWin(winnerChoice, loserChoice) {
-    console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
+    //console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
+    resultMsg.textContent = `You win! ${winnerChoice} beats ${loserChoice}.`;
 }
 
+
 //Play RPS if player selects rock
-rockBtn = document.querySelector(".rock")
+rockBtn = document.querySelector(".rock");
 rockBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
-    playRound("Rock", cC)
+    playRound("Rock", cC);
 })
 
 
