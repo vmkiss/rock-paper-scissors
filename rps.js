@@ -1,5 +1,8 @@
 let humanScore = 0; //tracks human player's total score
 let computerScore = 0; //tracks computer's total score
+let humanScoreDiv = document.querySelector(".human");
+let computerScoreDiv = document.querySelector(".computer")
+
 
 //Create div to hold results message and append to results div
 let resultMsg = document.createElement("div");
@@ -85,34 +88,38 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+//Display human and computer scores
+function displayScores() {
+    humanScoreDiv.textContent = `Human Score: ${humanScore.toString()}`;
+    computerScoreDiv.textContent = `Computer Score: ${computerScore.toString()}`;
+}
+
 //Print tie
 function printTie(choice) {
     //console.log(`You tie! ${choice} equals ${choice}.`);
     resultMsg.textContent = `You tie! ${choice} equals ${choice}.`;
+    displayScores();
 }
 
 //Print loss
 function printLoss(winnerChoice, loserChoice) {
     //console.log(`You lose! ${winnerChoice} beats ${loserChoice}.`);
     resultMsg.textContent = `You lose! ${winnerChoice} beats ${loserChoice}.`;
+    displayScores();
 }
-localStorage
+
 //Print win
 function printWin(winnerChoice, loserChoice) {
     //console.log(`You win! ${winnerChoice} beats ${loserChoice}.`);
     resultMsg.textContent = `You win! ${winnerChoice} beats ${loserChoice}.`;
+    displayScores();
 }
-
 
 //Play RPS if player selects rock
 rockBtn = document.querySelector(".rock");
 rockBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
     playRound("Rock", cC);
-    let humanScoreDiv = document.querySelector(".human");
-    let computerScoreDiv = document.querySelector(".computer")
-    humanScoreDiv.textContent = `Human Score: ${humanScore.toString()}`;
-    computerScoreDiv.textContent = `Computer Score: ${computerScore.toString()}`;
 })
 
 
