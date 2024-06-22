@@ -18,6 +18,22 @@ button {
     font-size: 36px;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+.new-game {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#new-game-btn {
+    padding: 20px;
+    font-size: 30px;
+    background-color: #FAC898;
+}
+
 .rock {
     background-color: #ADD8E6;
 }
