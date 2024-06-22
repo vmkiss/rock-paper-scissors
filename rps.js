@@ -24,19 +24,6 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-//Get human player's move
-//function getHumanChoice() {
-    //let humanChoice = "None";
-    //do {
-        //humanChoice = prompt("Rock, Paper, or Scissors?:");
-        //humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
-    //}
-    //while (humanChoice != "Rock" && humanChoice != "Paper" &&
-            //humanChoice != "Scissors");
-    
-    //return humanChoice;
-//}
-
 //Play a round of RPS
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock") {
@@ -120,4 +107,11 @@ rockBtn = document.querySelector(".rock");
 rockBtn.addEventListener("click", () => {
     let cC = getComputerChoice();
     playRound("Rock", cC);
+})
+
+//Play RPS if play selects paper
+paperBtn = document.querySelector(".paper");
+paperBtn.addEventListener("click", () => {
+    let cC = getComputerChoice();
+    playRound("Paper", cC);
 })
